@@ -1,27 +1,25 @@
-name: Check JVC Android Build Environment
+name: JVC Build Check
 
-on:
-workflow_dispatch:
+on: workflow_dispatch
 
 jobs:
-environment-check:
+check:
 runs-on: ubuntu-22.04
 steps:
-- name: Show available resources
-run: |
-echo "=== System ==="
-uname -a
-echo "=== CPU ==="
-nproc
-echo "=== Memory ==="
-free -h
-echo "=== Disk ==="
-df -h /
-echo "=== Tools ==="
-git --version
-python3 --version
-java -version
-echo "=== Android tools ==="
-command -v repo || true
-command -v adb || true
-command -v fastboot || true
+- name: Show system information
+run: uname -a
+
+  - name: Show CPU
+    run: nproc
+
+  - name: Show memory
+    run: free -h
+
+  - name: Show disk
+    run: df -h /
+
+  - name: Show Java
+    run: java -version
+
+  - name: Show Git
+    run: git --version
