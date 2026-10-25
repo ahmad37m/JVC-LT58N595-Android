@@ -1,25 +1,10 @@
 name: JVC Build Check
 
-on: workflow_dispatch
+on:
+workflow_dispatch:
 
 jobs:
 check:
 runs-on: ubuntu-22.04
 steps:
-- name: Show system information
-run: uname -a
-
-  - name: Show CPU
-    run: nproc
-
-  - name: Show memory
-    run: free -h
-
-  - name: Show disk
-    run: df -h /
-
-  - name: Show Java
-    run: java -version
-
-  - name: Show Git
-    run: git --version
+- run: uname -a
